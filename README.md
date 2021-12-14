@@ -2,7 +2,7 @@
 
 参考[tinyrenderer](https://github.com/ssloy/tinyrenderer)项目。
 
-## Wiki Content
+## Basic Content
 - [x] Bresenham’s Line Drawing Algorithm(画线算法)
 - [x] Wireframe rendering(线框渲染)
 ## Extra
