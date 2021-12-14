@@ -45,6 +45,6 @@ int Model::nfaces(){
 vector<int> Model::face(int idx){
     return faces_[idx];   
 }
-Vec3f Model::vertices(int idx){
+Vec3f Model::vertex(int idx){
     return vertices_[idx];
 }
