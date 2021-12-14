@@ -12,7 +12,7 @@ public:
 	~Model();
 	int nvertices;           // 顶点的数量
 	int nfaces;				 // 面片的数量
-	Vec3f vertices(int idx);
+	Vec3f vertex(int idx);
 	std::vector<int> face(int idx);
 	
 }
