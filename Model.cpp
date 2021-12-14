@@ -8,19 +8,20 @@ using namespace std;
 
 Model::Model(const string& filename) : vertices_(), faces_() {
     ifstream in;
-    in.open (filename, std::ifstream::in);
+    in.open(filename, std::ifstream::in);
     if (in.fail()) return;
     string line;
     while (!in.eof()) {
         getline(in, line);
         istringstream iss(line.c_str());
         char trash;
-        if (!line.compare(0, 2, "v ")) {       //A.compare(x, x, B): 相同返回0; A < B 返回-1; 否则返回1;
+        if (!line.compare(0, 2, "v ")) {       
             iss >> trash;
             Vec3f v;
-            for (int i=0;i<3;i++) iss >> v.raw[i];
+            for (int i = 0; i < 3; i++) iss >> v.raw[i];
             vertices_.push_back(v);
-        } else if (!line.compare(0, 2, "f ")) {
+        }
+        else if (!line.compare(0, 2, "f ")) {
             std::vector<int> f;
             int itrash, idx;
             iss >> trash;
@@ -31,20 +32,20 @@ Model::Model(const string& filename) : vertices_(), faces_() {
             faces_.push_back(f);
         }
     }
-    std::cerr << "# v# " << vertices_.size() << " f# "  << faces_.size() << std::endl;
+    std::cerr << "# v# " << vertices_.size() << " f# " << faces_.size() << std::endl;
 }
 
-Mode::~Mode() {}
+Model::~Model() {}
 
-int Model::nvertices(){
+int Model::nvertices() {
     return (int)vertices_.size();
 }
-int Model::nfaces(){
-    return (int)faces_.size();   
+int Model::nfaces() {
+    return (int)faces_.size();
 }
-vector<int> Model::face(int idx){
-    return faces_[idx];   
+vector<int> Model::face(int idx) {
+    return faces_[idx];
 }
-Vec3f Model::vertex(int idx){
+Vec3f Model::vertex(int idx) {
     return vertices_[idx];
 }
